@@ -1,7 +1,7 @@
-import logo from "/public/logo-name.svg";
+import logo from  "/logo-name.svg";
 import { useState } from "react";
 // import "./Header.css";
-import { styled } from "styled-components";
+import { styled } from "styled-components"; 
 
 const HeaderContainer = styled.header`
   height: 50px;
@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <HeaderContainer>
-      <img src={logo} alt={name} />
+      <img src={logo} alt={'Result'} />
       {/* <h3>Result University</h3> */}
 
       <span>Время сейчас: {now.toLocaleTimeString()}</span>

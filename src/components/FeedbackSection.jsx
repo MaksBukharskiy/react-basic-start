@@ -1,19 +1,34 @@
-import { useState } from "react";
+import { useState } from "react"; 
 import Button from "./Button/Button";
 
 export default function FeedbackSection() {
-  сonst [names, setNames] = useState('')
-  сonst [reason, setReason] = useState("help")
+  const [name, setName] = useState("");
+  const [reason, setReason] = useState("help");
+
+  function handleReasonChange(event) {
+    setReason(event.target.value);
+  }
 
   return (
     <section>
       <h3>Обратная связь</h3>
       <form>
         <label htmlFor="name">Ваше имя:</label>
-        <input type="text" className="control" id="name" value={names} />
+        <input
+          type="text"
+          className="control"
+          id="name"
+          value={name}
+          onChange={handleNameChange}
+        />
 
         <label htmlFor="reason">Причина обращения</label>
-        <select id="reason" className="control">
+        <select 
+          id="reason" 
+          className="control"
+          value={reason}
+          onChange={handleReasonChange}
+        >
           <option value="error">Ошибка</option>
           <option value="help">Нужна помощь</option>
           <option value="suggest">Предложение</option>
