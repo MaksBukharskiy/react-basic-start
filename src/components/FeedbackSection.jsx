@@ -4,15 +4,14 @@ import Button from "./Button/Button";
 export default function FeedbackSection() {
   const [name, setName] = useState("");
   const [reason, setReason] = useState("help");
+  const [hasError, setHasError] = useState(true);
+
 
   function handleNameChange(event) {
     setName(event.target.value);
+    setHasError(event.target.value.trim().length === 0);
   }
-
-  function handleReasonChange(event) {
-    setReason(event.target.value);
-  }
-
+  
   return (
     <section>
       <h3>Обратная связь</h3>
@@ -23,6 +22,9 @@ export default function FeedbackSection() {
           className="control"
           id="name"
           value={name}
+          style={{
+            border: hasError ? '3px solid red' : null , // если имя не пустое, то нет красной границы
+          }}
           onChange={handleNameChange}
         />
 
@@ -37,9 +39,14 @@ export default function FeedbackSection() {
           <option value="help">Нужна помощь</option>
           <option value="suggest">Предложение</option>
         </select>
-      </form>
 
-      <Button>Отправить</Button>
+        <pre>
+          {`Name: ${name}
+          Reason: ${reason}`}
+        </pre>
+
+      <Button disabled={hasError} isActive={!hasError}>Отправить</Button>
+      </form>
     </section>
   );
 }

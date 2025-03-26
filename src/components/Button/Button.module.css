@@ -6,6 +6,8 @@
     transition: all .3s;
     font-weight: bold;
     margin-right: 1rem;
+    background: #3e6ae1;
+    color: white;
 }
 
 .button:hover{
@@ -13,7 +15,14 @@
     background: #9b9faa;
 }
 
+.button:disabled {
+    background: #cccccc;
+    color: rgb(0, 0, 0);
+    opacity: 0.9;
+    cursor: not-allowed;
+}
+
 .button.active{
-    background: #3e6ae1;
+    background: #ff0000;
     color: white;
 }
